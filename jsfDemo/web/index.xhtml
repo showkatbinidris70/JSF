@@ -41,7 +41,18 @@
                 <p:layoutUnit position="center">
                     Welcome to PrimeFaces
                     
+                    <h:form>
+                        <p:outputLabel value="Gender"/>
+                        <p:inputText value="#{studentConrtoller.student.studentName}"/>
+                       
+                    </h:form>
+                    
                     <hr/>
+                    <p:outputLabel value="Gender"/>
+                    <p:selectOneRadio id="gender" value="#{studentConrtoller.student.gender}"/>
+                    
+                                      
+                                      
                     
                     <p:dataTable var="stu" value="#{dtBasicView.cars}">
                         <p:column headerText="Id">
