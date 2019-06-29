@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:body>
+        <center>
+            <h2> Welcome to student data store</h2>
+            <form id="aa">
+                <table>
+                    <tr>
+                        <td><p:outputLabel value="ID :"/></td>
+                    <td><p:inputText value="#{studentContoller.student.id}"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><p:outputLabel value="Name"/></td>
+                    <td><p:inputText value="#{studentContoller.student.name}"/></td>
+                    </tr>
+
+                    <tr>
+                        <td> <p:selectOneRadio id="gender" value="#{studentContoller.student.gender}">
+                        <f:selectItem itemLabel="Male" itemValue="Male"/>
+                        <f:selectItem itemLabel="Female" itemValue="Female"/>
+                    </p:selectoneradio></td>
+                    </tr>
+
+                    <tr>
+                        <td> <p:outputLabel value="Round"/></td>
+                    <td> <p:selectOneMenu id="round" value="#{studentContoller.student.round}">
+                        <f:selectItem itemLabel="Select A Round" itemValue=""/>
+                        <f:selectItem itemLabel="Round 37" itemValue="Round 37"/>
+                        <f:selectItem itemLabel="Round 38" itemValue="Round 38"/>
+                        <f:selectItem itemLabel="Round 39" itemValue="Round 39"/>
+                    </p:selectonemenu>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p:outputLabel value="Course"/></td>
+                        <td> <p:selectManyCheckbox id="course" value="#{studentContoller.student.cource}">
+                            <f:selectItem itemLabel="HTML" itemValue="HTML"/>
+                            <f:selectItem itemLabel="Java" itemValue="Java"/>
+                            <f:selectItem itemLabel="Spring" itemValue="Spring"/>
+                        </p:selectManyCheckbox>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td> <p:outputLabel value="Startin Date"/></td>
+                        <td> <p:calendar value="#{studentContoller.student.startingDate}"></p:calendar></td>
+                    </tr>
+                   
+                    <tr>
+                        <td><p:outputLabel value="Note"/></td>
+                        <td> <p:inputTextarea="#{studentContoller.student.startingDate}"></p:inputTextarea></td>
+                    </tr>
+                     <tr>
+                        <td><p:commandButton action="#{studentContoller.save()}" value="Save" update=":aa :lists:stuList"/></td>
+                        <td><p:commandButton action="#{studentContoller.update()}" value="Update" update=":aa :lists:stuList"/></td>
+                        <td><p:commandButton action="#{studentContoller.delete()}" value="Delete" update=":lists:stuList"/></td>
+                        <td><p:commandButton  value="Reset" update=":lists:stuList">
+                                <p:ajax update="aa" resetValues="true"/>
+                            </p:commandButton></td>
+                    </tr>
+                </table>
+            </form>
+
+        </center>
+
+    </h:body>
+
+
+</html>
+
